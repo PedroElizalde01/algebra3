@@ -12,12 +12,12 @@ public class Guide1IterativeSolution {
 
     //2
     public double iterativeC(int n){
-        int total=0, a = 0, b = 1, c;
+        int total=0, a = 1, b = 1, c;
         for (int i = 0; i < n-2; i++) {
             c = a + b;
             a = b;
             b = c;
-            total =c;
+            total = c;
         }
         return total;
     }

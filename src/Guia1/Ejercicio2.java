@@ -20,7 +20,7 @@ public class Ejercicio2 {
     }
     //c)
     public double c(int n){
-        int total=0, a = 0, b = 1, c;
+        int total=0, a = 1, b = 1, c;
         for (int i = 0; i < n-2; i++) {
             c = a + b;
             a = b;

@@ -1,14 +1,16 @@
 package Guia1;
 
+import Team2Solution.Guide1IterativeSolution;
 import Team2Solution.Guide1RecursiveSolution;
 
 public class Tester {
     public static void main(String[] args) {
         /*
-        System.out.println("Ejercicio 1");
+        //System.out.println("Ejercicio 1");
         Ejercicio1 test1 = new Ejercicio1();
-        System.out.println(test1.a(5));      // 15
-        System.out.println(test1.b(4));      // 30
+        //System.out.println(test1.a(5));      // 15
+        System.out.println(test1.b(9));      // 30
+
         System.out.println(test1.c(4,2)); // 31
         System.out.println(test1.d(10));     // 25
         System.out.println(test1.e(5));      // 70
@@ -59,8 +61,11 @@ public class Tester {
         System.out.println(function);
 
          */
+        Guide1IterativeSolution iterative = new Guide1IterativeSolution();
+        System.out.println(iterative.iterativeC(6));
 
         Guide1RecursiveSolution recursive = new Guide1RecursiveSolution();
-        System.out.println(recursive.recursiveB(4));
+        //System.out.println(recursive.recursiveB(9));
+        System.out.println(recursive.recursiveC(6)); // 987
     }
 }
