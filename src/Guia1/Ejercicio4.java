@@ -22,4 +22,14 @@ public class Ejercicio4 {
         }
         return(number == inverse);
     }
+
+    public boolean isCapicua(Object[] array){
+        int count = 0;
+        for (int i = 0; i < array.length; i++) {
+            if(!array[i].equals(array[array.length-1-i])){
+                return false;
+            }
+        }
+        return true;
+    }
 }

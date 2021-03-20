@@ -15,7 +15,7 @@ public class Ejercicio6 {
                 count++;
             }
         }
-        if(count <= 2){
+        if(count == 2){
             return true;
         }
         return false;

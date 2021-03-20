@@ -3,6 +3,8 @@ package Guia1;
 import Team2Solution.Guide1IterativeSolution;
 import Team2Solution.Guide1RecursiveSolution;
 
+import javax.print.attribute.standard.PresentationDirection;
+
 public class Tester {
     public static void main(String[] args) {
         /*
@@ -56,16 +58,24 @@ public class Tester {
         Ejercicio7 test7 = new Ejercicio7();
         System.out.println(test7.mcd(1032,180));
 
-        Ejercicio8 test8 = new Ejercicio8();
-        String function = test8.hornersMethod(4);
-        System.out.println(function);
 
-         */
+
         Guide1IterativeSolution iterative = new Guide1IterativeSolution();
         System.out.println(iterative.iterativeC(6));
 
+         */
+
+        Guide1IterativeSolution iterative = new Guide1IterativeSolution();
+        System.out.println(iterative.iterativePrimeNumberQuantity(16));
+
         Guide1RecursiveSolution recursive = new Guide1RecursiveSolution();
-        //System.out.println(recursive.recursiveB(9));
-        System.out.println(recursive.recursiveC(6)); // 987
+        System.out.println(recursive.recursivePrimeNumberQuantity(16));
+
+
+
+
+
+
+
     }
 }
