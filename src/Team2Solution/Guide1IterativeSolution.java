@@ -1,6 +1,7 @@
 package Team2Solution;
 
 public class Guide1IterativeSolution {
+    //@authors - Juan Cruz Estevez y Pedro Elizalde
     //1
     public int iterative1B(int n){
         int total =0;

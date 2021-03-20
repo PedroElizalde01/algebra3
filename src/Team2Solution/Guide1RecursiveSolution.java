@@ -1,6 +1,7 @@
 package Team2Solution;
 
 public class Guide1RecursiveSolution {
+    //@authors - Juan Cruz Estevez y Pedro Elizalde
     //1
     public int recursiveB(int n){
         int total = 0;
