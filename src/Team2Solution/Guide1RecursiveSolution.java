@@ -76,5 +76,41 @@ public class Guide1RecursiveSolution {
     }
 
     //5
+    public int hornerRecursivo(int x, int[] coeficientes){
+        int i = 0;
+        int result = 0;
+        return  hornerAux(x, coeficientes, i, result);
+    }
+    public int hornerAux(int x, int[] coeficientes, int i, int result) {
+        if (i == coeficientes.length) {
+            return result;
+        } else {
+            result = result * x + coeficientes[i];
+            return hornerAux(x, coeficientes, i + 1, result);
+        }
+    }
+
+    public String hornerPoliRecursivo(int[] coeficientes){
+        int i = 0;
+        String poli = null;
+        return hornerPoliAux(coeficientes, i, poli);
+    }
+    public String hornerPoliAux(int[] coeficientes, int i, String poli){
+        if (i == coeficientes.length) {
+            return poli;
+        }else {
+            if (i==0){
+                poli = coeficientes[i] + "x";
+            }else{
+                if (i == coeficientes.length-1){
+                    poli = poli + "+" + coeficientes[i];
+                }else{
+                    poli = "(" + poli + "+" + coeficientes[i] + ")x";
+                }
+
+            }
+            return hornerPoliAux(coeficientes, i+1, poli);
+        }
+    }
 
 }
