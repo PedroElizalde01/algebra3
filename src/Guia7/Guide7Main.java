@@ -1,14 +1,13 @@
 package Guia7;
 
 public class Guide7Main {
-    public static void main(String[] args) throws CannotMultiplyException {
+    public static void main(String[] args) {
         Guide7Solution api = new Guide7Solution();
-        int[][] matrixA = {{1,0,0},{0,1,0},{0,0,1}};
-        int[][] matrixB = {{1,0,0},{0,1,0},{0,0,1}};
-        int[][] matrixC = api.multiplyMatrix(matrixA, matrixB);
-        for (int i = 0; i < matrixC.length; i++) {
-            for (int j = 0; j < matrixC[i].length; j++) {
-                System.out.print(matrixC[i][j]+" ");
+        double[][] matrixA = {{-1,1,0,0},{1,0,1,0},{1,0,0,1}};
+        double[][] matrixC = api.GramSchmidt(matrixA);
+        for (double[] doubles : matrixC) {
+            for (double aDouble : doubles) {
+                System.out.print(aDouble + " ");
             }
             System.out.println();
         }

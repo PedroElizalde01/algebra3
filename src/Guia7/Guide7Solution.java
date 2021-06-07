@@ -2,6 +2,7 @@ package Guia7;
 
 public class Guide7Solution {
 
+    //1)
     public int excercise1B(int[][] matrix){
         int totalSum=0;
         for (int i = 0; i < matrix.length; i++) {
@@ -15,17 +16,12 @@ public class Guide7Solution {
     }
 
     //2)
-    public boolean isSimetrical(int[][] matrix){
-        for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix[i].length; j++) {
-                if(matrix.length != matrix[i].length) return false;
-            }
-        }
-        int rows = matrix.length;
-        int cols = matrix[0].length;
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < cols; j++) {
-                if(matrix[i][j] != matrix[j][i]) return false;
+    public boolean isSimetrica(int[][] matrix){
+        for(int i=0; i < matrix.length; i++){
+            for(int j=0; j < matrix[i].length ; j++){
+                if(matrix[i][j] != matrix[j][i]){
+                    return false;
+                }
             }
         }
         return true;
@@ -47,35 +43,69 @@ public class Guide7Solution {
         return true;
     }
 
-    //3) d) III) REHACER  <--------------------------
-    public int[][] multiplyMatrix(int[][] A, int[][] B) throws CannotMultiplyException {
-        if(A[0].length != B.length) throw new CannotMultiplyException();
-        int[][] toReturn = new int[A.length][B[0].length];
-        for (int i = 0; i < A.length; i++) {
-            int c = 0;
-            int suma = 0;
-            for (int j = 0; j < B[i].length; j++) {
-                suma = suma + (A[i][j] * B[i][j]);
-                toReturn[i][j] = suma;
+    //3) d) III)
+    public int[][] multiply(int[][] a, int[][] b) {
+        int[][] toReturn = new int[a.length][b[0].length];
+        if (a[0].length == b.length) {
+            for (int i = 0; i < a.length; i++) {
+                for (int j = 0; j < b[0].length; j++) {
+                    for (int k = 0; k < a[0].length; k++) {
+                        toReturn[i][j] += a[i][k] * b[k][j];
+                    }
+                }
             }
         }
         return toReturn;
     }
 
-//4)
-    /*
-    public int[][] orthogonalize(int[][] base){
-        int[][] toReturn = new int[base.length][base[0].length];
-        int[] w1 = base[0];
-
+    //4)
+    public double[][] GramSchmidt(double[][] base){
+        double[][] VectorOrtogonal = new double[base.length][base[0].length];
+        VectorOrtogonal[0] = base[0];
+        for (int i = 1; i < VectorOrtogonal.length; i++) {
+            VectorOrtogonal[i] = GramSchmidtFormula(base[i], VectorOrtogonal,i-1);
+        }
+        return VectorOrtogonal;
     }
 
-     */
+    public double[] GramSchmidtFormula(double[] v, double[][]w, int index){
+        double[] e;
+        double[] toReturn = new double[v.length];
+        if(index==0){
+            double a = ((mult(w[0],v))/mult(w[0],w[0]));
+            e = multVector(w[0], a);
+            toReturn = rest(v, e);
+        }
+        if(0 < index){
+            double a = ((mult(w[index],v))/mult(w[index],w[index]));
+            e = multVector(w[index], a);
+            return rest(GramSchmidtFormula(v,w,index-1),e);
+        }
+        return toReturn;
+    }
 
-}
+    public double mult(double[] v, double[]w){
+        double result = 0;
+        for (int i = 0; i < v.length; i++) {
+            result += (v[i] * w[i]);
+        }
+        return result;
+    }
 
-class CannotMultiplyException extends Exception {
-    public CannotMultiplyException(){
-        super("The matrices cannot be multiplied");
+    public double[] rest(double[] v, double[]w){
+        double[] result = new double[v.length];
+        for (int i = 0; i < v.length; i++) {
+            result[i] = (v[i] - w[i]);
+        }
+        return result;
+    }
+
+    public double[] multVector(double[] v, double w){
+        double[] result = new double[v.length];
+
+        for (int i = 0; i < v.length; i++) {
+            result[i] = (v[i] * w);
+        }
+        return result;
     }
 }
